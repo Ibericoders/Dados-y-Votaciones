@@ -1,8 +1,5 @@
 package sergioescalona.dadosyvotacionesapp.Activities;
 
-import android.media.AudioAttributes;
-import android.media.SoundPool;
-import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
@@ -16,7 +13,6 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import sergioescalona.dadosyvotacionesapp.JavaClasses.PreLollipopSoundPool;
 import sergioescalona.dadosyvotacionesapp.R;
 
 
@@ -28,9 +24,7 @@ public class DicesActivity extends AppCompatActivity {
     private TextView textViewRandom;
 
     Random random;              //Genera numeros al azar.
-    SoundPool dice_sound;       //El sonido del dado
-    int sound_id;               //Para controlar el SoundPool
-    Handler handler;
+    Handler handler;            //Manejador para el TimerTask
     Timer timer;                //Usado para darle feedback al usuario.
     boolean rolling;            //Está el dado rodando?
 
@@ -51,10 +45,8 @@ public class DicesActivity extends AppCompatActivity {
 
         buttonDice.setOnClickListener(new HandleClick());
         //ENLACE DEL HANDLER Y EL CALLBACK.
-        handler=new Handler(callback);
+        handler = new Handler(callback);
 
-        //INICIAMOS EL SONIDO
-        InitSound();
 
         //CREAMOS UN LISTENER PARA EL BOTON DE ALEATORIO
         buttonArbitrary.setOnClickListener(new View.OnClickListener() {
@@ -77,34 +69,11 @@ public class DicesActivity extends AppCompatActivity {
                 rolling = true;
                 //ENSEÑAMOS EL DADO RODANDO.
                 imageViewDice.setImageResource(R.drawable.dice3droll);
-                //EMPIEZA EL SONIDO RODANDO.
-                dice_sound.play(sound_id, 1.0f, 1.0f, 0, 0, 1.0f);
                 //PAUSA PARA QUE LA IMAGEN SE ACTUALICE.
                 //(VER LA CLASE ROLL).
                 timer.schedule(new Roll(), 400);
             }
         }
-    }
-    //METODO PARA CREAR EL SONIDO DEL DADO.
-    void InitSound() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-
-            AudioAttributes aa = new AudioAttributes.Builder()
-                    .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
-                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-                    .build();
-
-            //POR DEFECTO PUEDE SONAR UNA VEZ.
-            //TAMBIEN CONSTRUYE EL PATRÓN
-            dice_sound = new SoundPool.Builder().setAudioAttributes(aa).build();
-
-        } else {
-            //CORRE EN UN DISPOSITIVO CON API ANTERIOR A LOLLIPOP
-            //USA EL ANTIGUO SOUNDPOOL
-            dice_sound = PreLollipopSoundPool.NewSoundPool();
-        }
-        //CARGA EL SONIDO.
-        sound_id = dice_sound.load(this, R.raw.shake_dice, 1);
     }
 
     //CUANDO ACABA ENVIA UN MENSAJE DE CALLBACK.
@@ -144,12 +113,6 @@ public class DicesActivity extends AppCompatActivity {
             return true;
         }
     };
-
-    //CLEAN UP
-    protected void onPause() {
-        super.onPause();
-        dice_sound.pause(sound_id);
-    }
 
     protected void onDestroy() {
         super.onDestroy();
