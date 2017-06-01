@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Dados y Votaciones App</string>
+    <string name="text_view_dices_votes"><![CDATA[Dados & Votaciones]]></string>
+    <string name="text_button_dices">Dados</string>
+    <string name="text_button_votes">Votaciones</string>
+    <string name="text_dices">Dados</string>
+    <string name="button_roll">Tira el dado</string>
+    <string name="button_arbitrary"> Numero aleatorio (de 1 a 10)</string>
+    <string name="roll_description">Roll the dice, bro.</string>
+    <string name="text_random_number">0</string>
+</resources>

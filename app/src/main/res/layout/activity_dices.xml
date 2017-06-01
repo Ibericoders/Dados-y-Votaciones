@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="sergioescalona.dadosyvotacionesapp.Activities.DicesActivity">
+
+    <TextView
+        android:id="@+id/textViewTitleDices"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp"
+        android:text="@string/text_dices"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="32sp" />
+
+    <Button
+        android:id="@+id/buttonDice"
+        style="@style/Base.TextAppearance.AppCompat.Widget.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/buttonArbitrary"
+        android:layout_alignLeft="@+id/buttonArbitrary"
+        android:layout_alignRight="@+id/buttonArbitrary"
+        android:layout_alignStart="@+id/buttonArbitrary"
+        android:layout_below="@+id/textViewTitleDices"
+        android:layout_marginTop="27dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="@string/button_roll" />
+
+    <ImageView
+        android:id="@+id/imageViewDice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dice3droll"
+        android:contentDescription="@string/roll_description" />
+
+    <Button
+        android:id="@+id/buttonArbitrary"
+        style="@style/Base.TextAppearance.AppCompat.Widget.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imageViewDice"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="45dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="@string/button_arbitrary" />
+
+    <TextView
+        android:id="@+id/textViewArbitraryNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonArbitrary"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:text="@string/text_random_number"
+        android:textSize="42sp" />
+
+
+</RelativeLayout>
