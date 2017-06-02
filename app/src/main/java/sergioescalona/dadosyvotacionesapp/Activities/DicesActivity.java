@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.SeekBar;
 import android.widget.TextView;
-
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -18,15 +18,15 @@ import sergioescalona.dadosyvotacionesapp.R;
 
 public class DicesActivity extends AppCompatActivity {
 
-    private Button buttonDice;
-    private Button buttonArbitrary;
     private ImageView imageViewDice;
     private TextView textViewRandom;
-
-    Random random;              //Genera numeros al azar.
-    Handler handler;            //Manejador para el TimerTask
-    Timer timer;                //Usado para darle feedback al usuario.
-    boolean rolling;            //Está el dado rodando?
+    private TextView textViewMaximum;
+    private Random random;              //Genera numeros al azar.
+    private Handler handler;            //Manejador para el TimerTask
+    private Timer timer;                //Usado para darle feedback al usuario.
+    private boolean rolling;            //Está el dado rodando?
+    private int maxNumberEstablished; //El SeekBar empieza en 10.
+    private final int maxSeekBar = 20; //Maximo el SeekBar es 20.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,27 +35,55 @@ public class DicesActivity extends AppCompatActivity {
 
         //INSTANCIAMOS LOS ELEMENTOS DE LA UI Y OTROS.
 
-        buttonDice = (Button) findViewById(R.id.buttonDice);
-        buttonArbitrary = (Button) findViewById(R.id.buttonArbitrary);
+        Button buttonArbitrary = (Button) findViewById(R.id.buttonArbitrary);
         imageViewDice = (ImageView) findViewById(R.id.imageViewDice);
         textViewRandom = (TextView) findViewById(R.id.textViewArbitraryNumber);
+        textViewMaximum = (TextView) findViewById(R.id.textViewMaximum); //TextView que marca el maximo establecido
+        SeekBar seekBarMaximum = (SeekBar) findViewById(R.id.seekBarMaximum);
+        seekBarMaximum.setMax(maxSeekBar); //El máximo es 20.
+        seekBarMaximum.setProgress(10);//Empieza en 10 por defecto.
+        textViewMaximum.setText(10 + ""); //Seteamos el TextView a 10
         random = new Random();
         rolling = false;
         timer = new Timer();
 
-        buttonDice.setOnClickListener(new HandleClick());
+
+        imageViewDice.setOnClickListener(new HandleClick());
         //ENLACE DEL HANDLER Y EL CALLBACK.
         handler = new Handler(callback);
 
+        //A CONTINUACION, PROGRAMAMOS EL COMPORTAMIENTO DEL SEEKBAR, QUE SE VA A OCUPAR DE
+        //MARCAR EL NUMERO MÁXIMO PARA EL ALEATORIO.
+
+        seekBarMaximum.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int currentMaximum, boolean fromUser) {
+                //SEGÚN SE MODIFICA LA BARRA DE PROGRESO, EL NUMERO MARCADO SE VUELCA EN EL TEXTVIEW.
+                maxNumberEstablished = currentMaximum;
+                textViewMaximum.setText(maxNumberEstablished + "");
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                //AQUI NO HACEMOS NADA.
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                maxNumberEstablished = seekBar.getProgress();
+                textViewMaximum.setText(maxNumberEstablished + "");
+            }
+        });
 
         //CREAMOS UN LISTENER PARA EL BOTON DE ALEATORIO
         buttonArbitrary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //GENERAMOS UN NUMERO DE 1 A 10 ALEATORIO.
-                int randomNumber = (int) (Math.random() * 10 + 1);
+                int randomNumber = (int) (Math.random() * maxNumberEstablished + 1);
                 //VOLCAMOS ESE NUMERO EN EL TEXTVIEW.
-                textViewRandom.setText(String.valueOf(randomNumber));
+                textViewRandom.setText(randomNumber + "");
             }
         });
 
@@ -63,7 +91,7 @@ public class DicesActivity extends AppCompatActivity {
 
     //EL USUARIO HA PULSADO EL BOTON Y EL DADO RUEDA
     private class HandleClick implements View.OnClickListener {
-        public void onClick(View arg0) {
+        public void onClick(View v) {
             //SI NO ESTÁ RODANDO YA, CLARO.
             if (!rolling) {
                 rolling = true;
@@ -77,7 +105,7 @@ public class DicesActivity extends AppCompatActivity {
     }
 
     //CUANDO ACABA ENVIA UN MENSAJE DE CALLBACK.
-    class Roll extends TimerTask {
+    private class Roll extends TimerTask {
         public void run() {
             handler.sendEmptyMessage(0);
         }
@@ -118,6 +146,7 @@ public class DicesActivity extends AppCompatActivity {
         super.onDestroy();
         timer.cancel();
     }
+
 }
 
 
