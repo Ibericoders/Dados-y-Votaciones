@@ -1,17 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="sergioescalona.dadosyvotacionesapp.Activities.VoteActivity">
+    tools:context="sergioescalona.dadosyvotacionesapp.Project.Activities.VoteActivity">
 
-    <TextView
+    <EditText
+        android:id="@+id/editTextTopic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textViewVotesTitle"
-        android:text="@string/text_votes"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="31dp" />
+        android:layout_marginTop="27dp"
+        android:hint="@string/text_edit_question"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/textViewParticipants"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editTextTopic"
+        android:layout_alignStart="@+id/editTextTopic"
+        android:layout_below="@+id/editTextTopic"
+        android:layout_marginTop="21dp"
+        android:text="@string/text_edit_number_voters"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/textViewNumberParticipants"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/seekBarParticipants"
+        android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp"
+        android:layout_toEndOf="@+id/seekBarParticipants"
+        android:layout_toRightOf="@+id/seekBarParticipants"
+        android:textSize="18sp" />
+
+    <SeekBar
+        android:id="@+id/seekBarParticipants"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textViewParticipants"
+        android:layout_alignLeft="@+id/buttonA"
+        android:layout_alignRight="@+id/textViewParticipants"
+        android:layout_alignStart="@+id/buttonA"
+        android:layout_below="@+id/editTextTopic"
+        android:layout_marginTop="58dp" />
+
+    <Button
+        android:id="@+id/buttonA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextTopic"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="101dp"
+        android:background="@color/colorPrimaryLight"
+        android:text="@string/text_button_yes" />
+
+    <Button
+        android:id="@+id/buttonB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/buttonA"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="71dp"
+        android:background="@color/colorButtonNo"
+        android:text="@string/text_button_no" />
+
+    <Button
+        android:id="@+id/buttonC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/buttonB"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="21dp"
+        android:background="@color/colorButtonC"
+        android:text="@string/text_button_C" />
+
+    <Button
+        android:id="@+id/buttonD"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/buttonC"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/colorButtonD"
+        android:text="@string/text_button_D" />
+
+    <Button
+        android:id="@+id/buttonResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:text="@string/text_button_result"
+        android:textColor="@color/colorPrimaryLight"
+        android:layout_marginTop="37dp"
+        android:layout_below="@+id/buttonD"
+        android:layout_alignLeft="@+id/buttonD"
+        android:layout_alignStart="@+id/buttonD"
+        android:layout_alignRight="@+id/buttonD"
+        android:layout_alignEnd="@+id/buttonD" />
+
 </RelativeLayout>

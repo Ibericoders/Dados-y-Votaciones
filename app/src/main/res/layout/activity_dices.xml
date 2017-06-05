@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="sergioescalona.dadosyvotacionesapp.Activities.DicesActivity">
+    tools:context="sergioescalona.dadosyvotacionesapp.Project.Activities.DicesActivity">
 
     <TextView
         android:id="@+id/textViewTitleDices"
@@ -25,18 +25,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/dice3droll"
         android:contentDescription="@string/roll_description"
-        android:layout_marginTop="47dp"
+        android:layout_marginTop="66dp"
         android:layout_below="@+id/textViewTitleDices"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:id="@+id/textOr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/text_or"
-        android:textColor="@color/colorSecondaryText"
-        android:textSize="22sp"
-        android:layout_above="@+id/textViewRandom"
         android:layout_centerHorizontal="true" />
 
     <TextView

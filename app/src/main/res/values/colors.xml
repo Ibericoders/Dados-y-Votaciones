@@ -8,7 +8,10 @@
         <color name="colorSecondaryText">#757575</color>
         <color name="colorIcons">#FFFFFF</color>
         <color name="colorDivider">#BDBDBD</color>
-    </resources>
+        <color name="colorButtonNo">#f26c73</color>
+        <color name="colorButtonC">#ffcf78</color>
+        <color name="colorButtonD">#8bb9d7</color>
+</resources>
 
 
 

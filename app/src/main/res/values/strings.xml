@@ -9,5 +9,16 @@
     <string name="roll_description">Roll the dice, bro.</string>
     <string name="text_random_number">0</string>
     <string name="text_votes">Votaciones</string>
-    <string name="text_pick_random">Elige el número máximo</string>
+    <string name="text_pick_random"> O elige tu propio rango</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_edit_question">¿De qué es la votación?</string>
+    <string name="text_button_yes">Opción A / Sí</string>
+    <string name="text_button_no">Opción B / NO</string>
+    <string name="text_button_C">Opción C</string>
+    <string name="text_button_D">Opción D</string>
+    <string name="text_button_result">Calcular resultado</string>
+    <string name="text_edit_number_voters">Número de participantes</string>
+    <string name="button_text_share">Compartir el resultado</string>
 </resources>
