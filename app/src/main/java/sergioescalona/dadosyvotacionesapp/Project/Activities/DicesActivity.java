@@ -1,4 +1,4 @@
-package sergioescalona.dadosyvotacionesapp.Activities;
+package sergioescalona.dadosyvotacionesapp.Project.Activities;
 
 import android.os.Handler;
 import android.os.Message;
@@ -25,8 +25,7 @@ public class DicesActivity extends AppCompatActivity {
     private Handler handler;            //Manejador para el TimerTask
     private Timer timer;                //Usado para darle feedback al usuario.
     private boolean rolling;            //Está el dado rodando?
-    private int maxNumberEstablished; //El SeekBar empieza en 10.
-    private final int maxSeekBar = 20; //Maximo el SeekBar es 20.
+    private int maxNumberEstablished; //Número máximo establecido para el aleatorio.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +39,9 @@ public class DicesActivity extends AppCompatActivity {
         textViewRandom = (TextView) findViewById(R.id.textViewArbitraryNumber);
         textViewMaximum = (TextView) findViewById(R.id.textViewMaximum); //TextView que marca el maximo establecido
         SeekBar seekBarMaximum = (SeekBar) findViewById(R.id.seekBarMaximum);
+        int maxSeekBar = 20;
         seekBarMaximum.setMax(maxSeekBar); //El máximo es 20.
-        seekBarMaximum.setProgress(10);//Empieza en 10 por defecto.
-        textViewMaximum.setText(10 + ""); //Seteamos el TextView a 10
+        textViewMaximum.setText(maxNumberEstablished + "");
         random = new Random();
         rolling = false;
         timer = new Timer();
