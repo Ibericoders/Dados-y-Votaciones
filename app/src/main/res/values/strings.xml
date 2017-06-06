@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-    <resources>
+<resources>
 
     <string name="app_name">Dados y Votaciones App</string>
 
@@ -26,7 +26,7 @@
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="text_edit_question">¿De qué es la votación?</string>
+    <string name="text_edit_question">Introduce el tema a votar</string>
 
     <string name="text_button_yes">Opción A / Sí</string>
 
@@ -41,5 +41,9 @@
     <string name="text_edit_number_voters">Número de participantes</string>
 
     <string name="button_text_share">Compartir el resultado</string>
+    <string name="text_view_topic">Tema de la votación</string>
+    <string name="desctiption_votation_button">Pulsa el botón</string>
+    <string name="text_view_push">Acceder a la votación</string>
+    <string name="text_view_config">Configura la votación</string>
 
 </resources>

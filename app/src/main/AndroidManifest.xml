@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="sergioescalona.dadosyvotacionesapp">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -20,7 +20,8 @@
         </activity>
         <activity android:name=".Project.Activities.DicesActivity" />
         <activity android:name=".Project.Activities.VoteActivity" />
-        <activity android:name=".Project.Activities.ResultActivity"></activity>
+        <activity android:name=".Project.Activities.ResultActivity" />
+        <activity android:name=".Project.Activities.ConfigVotationActivity"></activity>
     </application>
 
 </manifest>
