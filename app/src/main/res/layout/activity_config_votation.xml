@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="sergioescalona.dadosyvotacionesapp.Project.Activities.ConfigVotationActivity">
+
+    <TextView
+        android:id="@+id/ConfigTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:text="@string/text_view_config"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/textViewTopic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/text_view_topic"
+        android:textAlignment="center"
+        android:textColor="@color/colorSecondaryText"
+        android:textSize="22sp"
+        android:layout_below="@+id/ConfigTitle"
+        android:layout_alignLeft="@+id/ConfigTitle"
+        android:layout_alignStart="@+id/ConfigTitle" />
+
+    <EditText
+        android:id="@+id/editTextTopic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewTopic"
+        android:layout_marginTop="14dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_alignLeft="@+id/textViewTopic"
+        android:layout_alignStart="@+id/textViewTopic"
+        android:layout_alignRight="@+id/textViewParticipants"
+        android:layout_alignEnd="@+id/textViewParticipants" />
+
+    <TextView
+        android:id="@+id/textViewParticipants"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/ConfigTitle"
+        android:layout_alignLeft="@+id/ConfigTitle"
+        android:layout_alignRight="@+id/ConfigTitle"
+        android:layout_alignStart="@+id/ConfigTitle"
+        android:layout_below="@+id/editTextTopic"
+        android:layout_marginTop="26dp"
+        android:text="@string/text_edit_number_voters"
+        android:textColor="@color/colorSecondaryText"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/textViewNumberParticipants"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textViewPushButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/colorSecondaryText"
+        android:textSize="24sp"
+        android:text=""/>
+
+    <SeekBar
+        android:id="@+id/seekBarParticipants"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/ConfigTitle"
+        android:layout_alignLeft="@+id/textViewParticipants"
+        android:layout_alignRight="@+id/ConfigTitle"
+        android:layout_alignStart="@+id/textViewParticipants"
+        android:layout_below="@+id/textViewParticipants"
+        android:layout_marginTop="13dp" />
+
+    <ImageButton
+        android:id="@+id/buttonToVotes"
+        style="@style/Base.TextAppearance.AppCompat.Widget.Button.Colored"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="26dp"
+        android:adjustViewBounds="true"
+        android:background="@color/colorPrimaryLight"
+        android:contentDescription="@string/desctiption_votation_button"
+        android:scaleType="fitCenter"
+        android:src="@drawable/voteactivity"
+        android:text="@string/text_button_votes" />
+
+    <TextView
+        android:id="@+id/textViewPushButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonToVotes"
+        android:layout_alignEnd="@+id/seekBarParticipants"
+        android:layout_alignLeft="@+id/seekBarParticipants"
+        android:layout_alignRight="@+id/seekBarParticipants"
+        android:layout_alignStart="@+id/seekBarParticipants"
+        android:layout_marginBottom="14dp"
+        android:text="@string/text_view_push"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="22sp" />
+
+</RelativeLayout>
