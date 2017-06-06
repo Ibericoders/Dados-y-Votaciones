@@ -13,18 +13,29 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="27dp"
         android:hint="@string/text_edit_question"
+        android:textColor="@color/colorPrimaryDark"
+
         android:textSize="22sp" />
 
     <TextView
         android:id="@+id/textViewParticipants"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/text_edit_number_voters"
+        android:textColor="@color/colorPrimaryDark"
+
+        android:textSize="22sp"
+        android:layout_above="@+id/textViewNumberParticipants"
+        android:layout_alignLeft="@+id/editTextTopic"
+        android:layout_alignStart="@+id/editTextTopic"
+        android:layout_marginBottom="12dp" />
         android:layout_alignLeft="@+id/editTextTopic"
         android:layout_alignStart="@+id/editTextTopic"
         android:layout_below="@+id/editTextTopic"
         android:layout_marginTop="21dp"
         android:text="@string/text_edit_number_voters"
         android:textSize="22sp" />
+
 
     <TextView
         android:id="@+id/textViewNumberParticipants"
@@ -33,6 +44,7 @@
         android:layout_alignTop="@+id/seekBarParticipants"
         android:layout_marginLeft="13dp"
         android:layout_marginStart="13dp"
+        android:textColor="@color/colorPrimaryDark"
         android:layout_toEndOf="@+id/seekBarParticipants"
         android:layout_toRightOf="@+id/seekBarParticipants"
         android:textSize="18sp" />
@@ -97,19 +109,5 @@
         android:layout_marginTop="24dp"
         android:background="@color/colorButtonD"
         android:text="@string/text_button_D" />
-
-    <Button
-        android:id="@+id/buttonResult"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        android:text="@string/text_button_result"
-        android:textColor="@color/colorPrimaryLight"
-        android:layout_marginTop="37dp"
-        android:layout_below="@+id/buttonD"
-        android:layout_alignLeft="@+id/buttonD"
-        android:layout_alignStart="@+id/buttonD"
-        android:layout_alignRight="@+id/buttonD"
-        android:layout_alignEnd="@+id/buttonD" />
 
 </RelativeLayout>
